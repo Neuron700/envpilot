@@ -1,0 +1,54 @@
+{
+  "name": "envpilot",
+  "version": "1.0.0",
+  "description": "Read-only developer environment doctor for Node.js and Python projects",
+  "type": "module",
+  "bin": {
+    "envpilot": "./dist/cli/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsx src/cli/index.ts",
+    "test": "npm run build && vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm test"
+  },
+  "keywords": [
+    "cli",
+    "developer-tools",
+    "environment",
+    "diagnostics",
+    "node",
+    "python"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@renovatebot/pep440": "^4.2.4",
+    "commander": "^14.0.2",
+    "picocolors": "^1.1.1",
+    "semver": "^7.7.3",
+    "smol-toml": "^1.9.1",
+    "yaml": "^2.9.1",
+    "zod": "^4.1.13"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@types/semver": "^7.7.1",
+    "tsup": "^8.5.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.15"
+  },
+  "overrides": {
+    "esbuild": "^0.28.2"
+  }
+}
